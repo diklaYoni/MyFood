@@ -2,11 +2,37 @@
 <html>
  <head>
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+     <!-- Latest compiled and minified CSS -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+     <!-- Optional theme -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+     <!-- Latest compiled and minified JavaScript -->
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
  </head>
-<body>
-    <div ng-app="">
-        <p>Name: <input type="text" ng-model="name"></p>
-        <p ng-bind="name"></p>
+<body style="background:#efefef;">
+    <div ng-app="" class="container" style="width:80%;margin:auto;">
+        <br />
+        <br /><br />
+<br />
+        <div class="panel panel-default">
+            <div class="panel-heading" style="background:#f5fcea;">
+                <h1>
+                    my food
+                </h1>
+            </div>
+            <div class="panel-body">
+                <p>Name: <input type="text" ng-model="name"></p>
+                <p ng-bind="name"></p>
+
+            </div>
+            <div class="panel-footer">
+                my food
+
+            </div>
+        </div>
+    
     </div>
 
 </body>

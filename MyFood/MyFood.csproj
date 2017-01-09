@@ -111,7 +111,11 @@
   <ItemGroup>
     <Content Include="Default.html" />
     <Content Include="Global.asax" />
+    <Content Include="Partial\AddView.html" />
     <Content Include="Partial\MainView.html" />
+    <Content Include="Scripts\Angular\app.js" />
+    <Content Include="Scripts\Angular\filters.js" />
+    <Content Include="Scripts\Angular\services.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -138,7 +142,6 @@
     <Folder Include="Controllers\" />
     <Folder Include="Images\" />
     <Folder Include="Models\" />
-    <Folder Include="Scripts\Angular\" />
     <Folder Include="Scripts\Other\" />
     <Folder Include="Style\" />
   </ItemGroup>
