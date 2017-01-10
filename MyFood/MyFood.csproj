@@ -111,11 +111,17 @@
   <ItemGroup>
     <Content Include="Default.html" />
     <Content Include="Global.asax" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\logo2.png" />
+    <Content Include="Images\logo3.png" />
+    <Content Include="Images\logo4.png" />
+    <Content Include="Images\reka.jpg" />
     <Content Include="Partial\AddView.html" />
     <Content Include="Partial\MainView.html" />
     <Content Include="Scripts\Angular\app.js" />
     <Content Include="Scripts\Angular\filters.js" />
     <Content Include="Scripts\Angular\services.js" />
+    <Content Include="Style\myFoodStyle.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -140,10 +146,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Images\" />
     <Folder Include="Models\" />
     <Folder Include="Scripts\Other\" />
-    <Folder Include="Style\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

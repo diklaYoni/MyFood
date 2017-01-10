@@ -10,19 +10,45 @@
 
      <!-- Latest compiled and minified JavaScript -->
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css">
+     <link href="Style/myFoodStyle.css" rel="stylesheet" />
+ 
  </head>
-<body style="background:#efefef;">
+<body>
     <div ng-app="" class="container" style="width:80%;margin:auto;">
         <br />
-        <br /><br />
+    
 <br />
-        <div class="panel panel-default">
-            <div class="panel-heading" style="background:#f5fcea;">
-                <h1>
-                    my food
-                </h1>
+        <div  class="text-center">
+
+
+            
+        </div>
+        <br />
+         <div class="panel panel-default">
+             <div class="panel-body text-right" style="padding:0px;">
+                 <img src="Images/logo4.png" width="13%" class="pull-right" style="margin:4px;" />
+                 <div class="pull-left"  style="width:85%;">
+
+                     <h4><label class="label label-success pull-left"  style="margin:4px;">שלום , אבירן אבו צדקה</label></h4>
+                     <div class="clearfix"></div>
+                     <div class="text-right" style="background:#87ca60;margin:0px;padding:10px;color:white;border-radius:0px 10px 10px 0px;margin-left:0px;">
+
+
+                         <a href="">דף ראשי</a>
+                         |
+                         <a href="">הוסף מתכון</a>
+                         |
+                         <a href="">מועדפים</a>
+                     </div>
+                 </div>
             </div>
+              
+            
             <div class="panel-body">
+                <h3 style="margin:0px;">דף ראשי</h3>
+                <hr />
+                <br />
                 <p>Name: <input type="text" ng-model="name"></p>
                 <p ng-bind="name"></p>
 
