@@ -1,56 +1,65 @@
 ﻿<!DOCTYPE html>
 <html>
- <head>
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-     <!-- Latest compiled and minified CSS -->
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
 
-     <!-- Optional theme -->
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-     <!-- Latest compiled and minified JavaScript -->
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-     <link rel="stylesheet" href="//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css">
-     <link href="Style/myFoodStyle.css" rel="stylesheet" />
- 
- </head>
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css">
+    <link href="Style/myFoodStyle.css" rel="stylesheet" />
+
+    <script src="Scripts/Angular/app.js"></script>
+    <script src="Scripts/Angular/Services/data-service.js"></script>
+    <script src="Controllers/MainControllerjs.js"></script>
+</head>
 <body>
-    <div ng-app="" class="container" style="width:80%;margin:auto;">
+    <div ng-app="myFoodApp" ng-controller="MainController" class="container" style="width:80%;margin:auto;">
         <br />
-    
-<br />
-        <div  class="text-center">
+
+        <br />
+        <div class="text-center">
 
 
-            
+
         </div>
         <br />
-         <div class="panel panel-default">
-             <div class="panel-body text-right" style="padding:0px;">
-                 <img src="Images/logo4.png" width="13%" class="pull-right" style="margin:4px;" />
-                 <div class="pull-left"  style="width:85%;">
+        <div class="panel panel-default">
+            <div class="panel-body text-right" style="padding:0px;">
+                <img src="Images/logo4.png" width="13%" class="pull-right" style="margin:4px;" />
+                <div class="pull-left" style="width:85%;">
 
-                     <h4><label class="label label-success pull-left"  style="margin:4px;">שלום , אבירן אבו צדקה</label></h4>
-                     <div class="clearfix"></div>
-                     <div class="text-right" style="background:#87ca60;margin:0px;padding:10px;color:white;border-radius:0px 10px 10px 0px;margin-left:0px;">
+                    <h4><label class="label label-success pull-left" style="margin:4px;">שלום , אבירן אבו צדקה</label></h4>
+                    <div class="clearfix"></div>
+                    <div class="text-right" style="background:#87ca60;margin:0px;padding:10px;color:white;border-radius:0px 10px 10px 0px;margin-left:0px;">
 
 
-                         <a href="">דף ראשי</a>
-                         |
-                         <a href="">הוסף מתכון</a>
-                         |
-                         <a href="">מועדפים</a>
-                     </div>
-                 </div>
+                        <a href="">דף ראשי</a>
+                        |
+                        <a href="">הוסף מתכון</a>
+                        |
+                        <a href="">מועדפים</a>
+                    </div>
+                </div>
             </div>
-              
-            
+
+
             <div class="panel-body">
                 <h3 style="margin:0px;">דף ראשי</h3>
                 <hr />
                 <br />
-                <p>Name: <input type="text" ng-model="name"></p>
-                <p ng-bind="name"></p>
+                <!--<p>Name: <input type="text" ng-model="name"></p>
+                <p ng-bind="name"></p>-->
+
+                <ul ng-repeat="res in recepies">
+                    <li> {{res.Title}} </li>
+                </ul>
 
             </div>
             <div class="panel-footer">
@@ -58,7 +67,7 @@
 
             </div>
         </div>
-    
+
     </div>
 
 </body>

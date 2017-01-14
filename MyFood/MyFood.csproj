@@ -109,6 +109,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Controllers\MainControllerjs.js" />
     <Content Include="Default.html" />
     <Content Include="Global.asax" />
     <Content Include="Images\logo.png" />
@@ -120,7 +121,7 @@
     <Content Include="Partial\MainView.html" />
     <Content Include="Scripts\Angular\app.js" />
     <Content Include="Scripts\Angular\filters.js" />
-    <Content Include="Scripts\Angular\services.js" />
+    <Content Include="Scripts\Angular\Services\data-service.js" />
     <Content Include="Style\myFoodStyle.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -145,7 +146,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
     <Folder Include="Scripts\Other\" />
   </ItemGroup>
