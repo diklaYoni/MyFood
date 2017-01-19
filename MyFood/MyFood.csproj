@@ -121,9 +121,11 @@
     <Content Include="Images\reka.jpg" />
     <Content Include="Partials\AddView.html" />
     <Content Include="Partials\MainView.html" />
+    <Content Include="Partials\RecipeView.html" />
     <Content Include="Scripts\Angular\app.js" />
     <Content Include="Scripts\Angular\filters.js" />
     <Content Include="Scripts\Angular\Services\data-service.js" />
+    <Content Include="Scripts\Other\Rate.js" />
     <Content Include="Style\myFoodStyle.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -149,7 +151,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Scripts\Other\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
