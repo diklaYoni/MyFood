@@ -5,3 +5,52 @@ body {
     background: linear-gradient(to right,#303030,#21211f);
    font-family: 'Open Sans Hebrew', sans-serif;
 }
+
+a.button:visited
+{
+ color:white;
+}
+
+.linkMenu {
+
+color:white;
+text-decoration:none;
+font-weight:bold;
+font-size:medium;
+margin:15px;
+}
+
+.linkLogin {
+
+font-weight:bold;
+font-size:small;
+color:black;
+
+padding:5px;
+padding-left:10px;
+}
+
+.clearMargin {
+
+margin:0px;
+padding:0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
