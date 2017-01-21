@@ -111,7 +111,13 @@
   <ItemGroup>
     <Content Include="Controllers\MainControllerjs.js" />
     <Content Include="Default.html" />
+    <Content Include="Directives\list-creator\list-creator.html" />
+    <Content Include="Directives\list-creator\list-creator.js" />
+    <Content Include="Directives\recipe-list\recipe-list.html" />
+    <Content Include="Directives\recipe-list\recipe-list.js" />
     <Content Include="Global.asax" />
+    <Content Include="Images\AddItem.jpg" />
+    <Content Include="Images\addPicture.PNG" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\logo2.png" />
     <Content Include="Images\logo3.png" />
@@ -119,6 +125,7 @@
     <Content Include="Images\logo98.png" />
     <Content Include="Images\logo99.png" />
     <Content Include="Images\reka.jpg" />
+    <Content Include="Images\removeItem.jpg" />
     <Content Include="Partials\AddView.html" />
     <Content Include="Partials\MainView.html" />
     <Content Include="Partials\RecipeView.html" />
