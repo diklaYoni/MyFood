@@ -9,7 +9,7 @@
 
             scope.addItem = function () {
                 
-                if (scope.newItem && scope.newItem.replace(" ", "") != "") {
+                if (scope.newItem && scope.newItem.replace(" ", "") !== "") {
                     scope.listItems.push(scope.newItem);
                     scope.newItem = "";
                 }

@@ -1,6 +1,6 @@
 ﻿<div class="list-creator">
     <div ng-repeat="item in listItems" ng-mouseenter="mouseEnterItem($index)" ng-mouseleave="mouseLeaveItem()">
-        {{item}}
+        {{$index + 1}} )  {{item}}
         <img src="../../Images/removeItem.jpg" 
              ng-show="HoveredItem == $index" 
              style="display:inline-block; width:20px; height:20px"
