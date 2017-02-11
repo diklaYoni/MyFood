@@ -1,0 +1,578 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MyFoodModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MyFood.dbo.Favorites' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Favorites">
+          <Key>
+            <PropertyRef Name="RecipeID" />
+            <PropertyRef Name="EMAIL" />
+          </Key>
+          <Property Name="RecipeID" Type="int" Nullable="false" />
+          <Property Name="EMAIL" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ingredients">
+          <Key>
+            <PropertyRef Name="RecipeID" />
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="RecipeID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Calories" Type="int" Nullable="false" />
+          <Property Name="Fat" Type="int" Nullable="false" />
+          <Property Name="Protein" Type="int" Nullable="false" />
+          <Property Name="Carbon" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MyFood.dbo.Profile' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="EMAIL" />
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="EMAIL" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CategoryID" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MyFood.dbo.Rank' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Rank">
+          <Key>
+            <PropertyRef Name="Rank" />
+            <PropertyRef Name="EMAIL" />
+            <PropertyRef Name="RecipeID" />
+          </Key>
+          <Property Name="Rank" Type="int" Nullable="false" />
+          <Property Name="EMAIL" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="RecipeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Recipe">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="EMAIL" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="MakingTime" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Steps" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Level" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Picture" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Category" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Rank" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="EMAIL" />
+          </Key>
+          <Property Name="EMAIL" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Gender" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Favorites_Recipe">
+          <End Role="Recipe" Type="Self.Recipe" Multiplicity="1" />
+          <End Role="Favorites" Type="Self.Favorites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Favorites">
+              <PropertyRef Name="RecipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Favorites_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Favorites" Type="Self.Favorites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="EMAIL" />
+            </Principal>
+            <Dependent Role="Favorites">
+              <PropertyRef Name="EMAIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ingredients_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Ingredients" Type="Self.Ingredients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ingredients">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ingredients_Recipe">
+          <End Role="Recipe" Type="Self.Recipe" Multiplicity="1" />
+          <End Role="Ingredients" Type="Self.Ingredients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ingredients">
+              <PropertyRef Name="RecipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Profile_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Profile" Type="Self.Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Profile">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Profile_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Profile" Type="Self.Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="EMAIL" />
+            </Principal>
+            <Dependent Role="Profile">
+              <PropertyRef Name="EMAIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rank_Recipe">
+          <End Role="Recipe" Type="Self.Recipe" Multiplicity="1" />
+          <End Role="Rank" Type="Self.Rank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Rank">
+              <PropertyRef Name="RecipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rank_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Rank" Type="Self.Rank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="EMAIL" />
+            </Principal>
+            <Dependent Role="Rank">
+              <PropertyRef Name="EMAIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipe_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Recipe" Type="Self.Recipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Recipe">
+              <PropertyRef Name="Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipe_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Recipe" Type="Self.Recipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="EMAIL" />
+            </Principal>
+            <Dependent Role="Recipe">
+              <PropertyRef Name="EMAIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="User1" Type="Self.User" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="EMAIL" />
+            </Principal>
+            <Dependent Role="User1">
+              <PropertyRef Name="EMAIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MyFoodModelStoreContainer">
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ingredients" EntityType="Self.Ingredients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recipe" EntityType="Self.Recipe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Favorites" EntityType="Self.Favorites" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Favorites].[RecipeID] AS [RecipeID], 
+    [Favorites].[EMAIL] AS [EMAIL]
+    FROM [dbo].[Favorites] AS [Favorites]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Profile" EntityType="Self.Profile" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Profile].[EMAIL] AS [EMAIL], 
+    [Profile].[CategoryID] AS [CategoryID]
+    FROM [dbo].[Profile] AS [Profile]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Rank" EntityType="Self.Rank" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Rank].[Rank] AS [Rank], 
+    [Rank].[EMAIL] AS [EMAIL], 
+    [Rank].[RecipeID] AS [RecipeID]
+    FROM [dbo].[Rank] AS [Rank]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Favorites_Recipe" Association="Self.FK_Favorites_Recipe">
+            <End Role="Recipe" EntitySet="Recipe" />
+            <End Role="Favorites" EntitySet="Favorites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Favorites_User" Association="Self.FK_Favorites_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Favorites" EntitySet="Favorites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ingredients_Product" Association="Self.FK_Ingredients_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Ingredients" EntitySet="Ingredients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ingredients_Recipe" Association="Self.FK_Ingredients_Recipe">
+            <End Role="Recipe" EntitySet="Recipe" />
+            <End Role="Ingredients" EntitySet="Ingredients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Profile_Category" Association="Self.FK_Profile_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Profile" EntitySet="Profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Profile_User" Association="Self.FK_Profile_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Profile" EntitySet="Profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rank_Recipe" Association="Self.FK_Rank_Recipe">
+            <End Role="Recipe" EntitySet="Recipe" />
+            <End Role="Rank" EntitySet="Rank" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rank_User" Association="Self.FK_Rank_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Rank" EntitySet="Rank" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipe_Category" Association="Self.FK_Recipe_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Recipe" EntitySet="Recipe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipe_User" Association="Self.FK_Recipe_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Recipe" EntitySet="Recipe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_User" Association="Self.FK_User_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="User1" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MyFoodModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Recipe" Relationship="Self.FK_Recipe_Category" FromRole="Category" ToRole="Recipe" />
+          <NavigationProperty Name="User" Relationship="Self.Profile" FromRole="Category" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Calories" Type="Int32" Nullable="false" />
+          <Property Name="Fat" Type="Int32" Nullable="false" />
+          <Property Name="Protein" Type="Int32" Nullable="false" />
+          <Property Name="Carbon" Type="Int32" />
+          <NavigationProperty Name="Recipe" Relationship="Self.Ingredients" FromRole="Product" ToRole="Recipe" />
+        </EntityType>
+        <EntityType Name="Recipe">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MakingTime" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Steps" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Level" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Picture" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Category" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Rank" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Category1" Relationship="Self.FK_Recipe_Category" FromRole="Recipe" ToRole="Category" />
+          <NavigationProperty Name="Rank1" Relationship="Self.FK_Rank_Recipe" FromRole="Recipe" ToRole="Rank" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Recipe_User" FromRole="Recipe" ToRole="User" />
+          <NavigationProperty Name="Product" Relationship="Self.Ingredients" FromRole="Recipe" ToRole="Product" />
+          <NavigationProperty Name="User1" Relationship="Self.Favorites" FromRole="Recipe" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="EMAIL" />
+          </Key>
+          <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gender" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Recipe" Relationship="Self.FK_Recipe_User" FromRole="User" ToRole="Recipe" />
+          <NavigationProperty Name="Rank" Relationship="Self.FK_Rank_User" FromRole="User" ToRole="Rank" />
+          <NavigationProperty Name="User1" Relationship="Self.FK_User_User" FromRole="User" ToRole="User1" />
+          <NavigationProperty Name="User2" Relationship="Self.FK_User_User" FromRole="User1" ToRole="User" />
+          <NavigationProperty Name="Recipe1" Relationship="Self.Favorites" FromRole="User" ToRole="Recipe" />
+          <NavigationProperty Name="Category" Relationship="Self.Profile" FromRole="User" ToRole="Category" />
+        </EntityType>
+        <EntityType Name="Rank">
+          <Key>
+            <PropertyRef Name="Rank1" />
+            <PropertyRef Name="EMAIL" />
+            <PropertyRef Name="RecipeID" />
+          </Key>
+          <Property Name="Rank1" Type="Int32" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RecipeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Recipe" Relationship="Self.FK_Rank_Recipe" FromRole="Rank" ToRole="Recipe" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Rank_User" FromRole="Rank" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Recipe_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Recipe" Type="Self.Recipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Recipe">
+              <PropertyRef Name="Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rank_Recipe">
+          <End Role="Recipe" Type="Self.Recipe" Multiplicity="1" />
+          <End Role="Rank" Type="Self.Rank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Rank">
+              <PropertyRef Name="RecipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipe_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Recipe" Type="Self.Recipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="EMAIL" />
+            </Principal>
+            <Dependent Role="Recipe">
+              <PropertyRef Name="EMAIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rank_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Rank" Type="Self.Rank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="EMAIL" />
+            </Principal>
+            <Dependent Role="Rank">
+              <PropertyRef Name="EMAIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="User1" Type="Self.User" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="EMAIL" />
+            </Principal>
+            <Dependent Role="User1">
+              <PropertyRef Name="EMAIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Ingredients">
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <End Role="Recipe" Type="Self.Recipe" Multiplicity="*" />
+        </Association>
+        <Association Name="Favorites">
+          <End Role="Recipe" Type="Self.Recipe" Multiplicity="*" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+        </Association>
+        <Association Name="Profile">
+          <End Role="Category" Type="Self.Category" Multiplicity="*" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="MyFoodEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Category" EntityType="Self.Category" />
+          <EntitySet Name="Product" EntityType="Self.Product" />
+          <EntitySet Name="Recipe" EntityType="Self.Recipe" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <EntitySet Name="Rank" EntityType="Self.Rank" />
+          <AssociationSet Name="FK_Recipe_Category" Association="Self.FK_Recipe_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Recipe" EntitySet="Recipe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rank_Recipe" Association="Self.FK_Rank_Recipe">
+            <End Role="Recipe" EntitySet="Recipe" />
+            <End Role="Rank" EntitySet="Rank" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipe_User" Association="Self.FK_Recipe_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Recipe" EntitySet="Recipe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rank_User" Association="Self.FK_Rank_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Rank" EntitySet="Rank" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_User" Association="Self.FK_User_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="User1" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="Ingredients" Association="Self.Ingredients">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Recipe" EntitySet="Recipe" />
+          </AssociationSet>
+          <AssociationSet Name="Favorites" Association="Self.Favorites">
+            <End Role="Recipe" EntitySet="Recipe" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="Profile" Association="Self.Profile">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MyFoodModelStoreContainer" CdmEntityContainer="MyFoodEntities">
+          <EntitySetMapping Name="Category">
+            <EntityTypeMapping TypeName="MyFoodModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="MyFoodModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Calories" ColumnName="Calories" />
+                <ScalarProperty Name="Fat" ColumnName="Fat" />
+                <ScalarProperty Name="Protein" ColumnName="Protein" />
+                <ScalarProperty Name="Carbon" ColumnName="Carbon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recipe">
+            <EntityTypeMapping TypeName="MyFoodModel.Recipe">
+              <MappingFragment StoreEntitySet="Recipe">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="MakingTime" ColumnName="MakingTime" />
+                <ScalarProperty Name="Steps" ColumnName="Steps" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="MyFoodModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rank">
+            <EntityTypeMapping TypeName="MyFoodModel.Rank">
+              <MappingFragment StoreEntitySet="Rank">
+                <ScalarProperty Name="Rank1" ColumnName="Rank" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="RecipeID" ColumnName="RecipeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Ingredients" TypeName="MyFoodModel.Ingredients" StoreEntitySet="Ingredients">
+            <EndProperty Name="Product">
+              <ScalarProperty Name="ID" ColumnName="ProductID" />
+            </EndProperty>
+            <EndProperty Name="Recipe">
+              <ScalarProperty Name="ID" ColumnName="RecipeID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Favorites" TypeName="MyFoodModel.Favorites" StoreEntitySet="Favorites">
+            <EndProperty Name="Recipe">
+              <ScalarProperty Name="ID" ColumnName="RecipeID" />
+            </EndProperty>
+            <EndProperty Name="User">
+              <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Profile" TypeName="MyFoodModel.Profile" StoreEntitySet="Profile">
+            <EndProperty Name="Category">
+              <ScalarProperty Name="ID" ColumnName="CategoryID" />
+            </EndProperty>
+            <EndProperty Name="User">
+              <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
