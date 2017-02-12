@@ -52,17 +52,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Category.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
+      <DependentUpon>myFood.tt</DependentUpon>
     </Compile>
-    <Compile Include="MyModel.Context.cs">
+    <Compile Include="myFood.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MyModel.Context.tt</DependentUpon>
+      <DependentUpon>myFood.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="MyModel.cs">
+    <Compile Include="myFood.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MyModel.tt</DependentUpon>
+      <DependentUpon>myFood.tt</DependentUpon>
     </Compile>
     <Compile Include="MyModel.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -70,17 +70,17 @@
       <DependentUpon>MyModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
+      <DependentUpon>myFood.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rank.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
+      <DependentUpon>myFood.tt</DependentUpon>
     </Compile>
     <Compile Include="Recipe.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
+      <DependentUpon>myFood.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
+      <DependentUpon>myFood.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -97,15 +97,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MyModel.Context.tt">
+    <Content Include="myFood.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>MyModel.Context.cs</LastGenOutput>
-      <DependentUpon>MyModel.edmx</DependentUpon>
+      <LastGenOutput>myFood.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="MyModel.tt">
+    <Content Include="myFood.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MyModel.edmx</DependentUpon>
-      <LastGenOutput>MyModel.cs</LastGenOutput>
+      <LastGenOutput>myFood.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

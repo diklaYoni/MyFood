@@ -2,7 +2,7 @@
 <#@ include file="EF6.Utility.CS.ttinclude"#><#@ 
  output extension=".cs"#><#
 
-const string inputFile = @"MyModel.edmx";
+const string inputFile = @"../DAL/MyModel.edmx";
 var textTransform = DynamicTextTransformation.Create(this);
 var code = new CodeGenerationTools(this);
 var ef = new MetadataTools(this);
@@ -240,7 +240,8 @@ public void WriteHeader(CodeStringGenerator codeStringGenerator, EntityFramework
 
 public void BeginNamespace(CodeGenerationTools code)
 {
-    var codeNamespace = code.VsNamespaceSuggestion();
+    //var codeNamespace = code.VsNamespaceSuggestion();
+	var codeNamespace = "BE";
     if (!String.IsNullOrEmpty(codeNamespace))
     {
 #>
