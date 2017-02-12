@@ -114,7 +114,13 @@
     <Content Include="Default3.html" />
     <Content Include="Default2.html" />
     <Content Include="Default.html" />
+    <Content Include="Directives\list-creator\list-creator.html" />
+    <Content Include="Directives\list-creator\list-creator.js" />
+    <Content Include="Directives\recipe-list\recipe-list.html" />
+    <Content Include="Directives\recipe-list\recipe-list.js" />
     <Content Include="Global.asax" />
+    <Content Include="Images\AddItem.jpg" />
+    <Content Include="Images\addPicture.PNG" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\logo1993.png" />
     <Content Include="Images\logo2.png" />
@@ -125,6 +131,7 @@
     <Content Include="Images\mylogo.png" />
     <Content Include="Images\mylogo26.png" />
     <Content Include="Images\reka.jpg" />
+    <Content Include="Images\removeItem.jpg" />
     <Content Include="Partials\AddView.html" />
     <Content Include="Partials\MainView.html" />
     <Content Include="Partials\RecipeView.html" />

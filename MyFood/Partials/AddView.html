@@ -3,4 +3,44 @@
     <h3 style="margin:0px;">הוספת מתכון </h3>
     <hr />
     <br />
+    <div class="row">
+        <div class="col-md-4" style=" height:auto;">
+            <div class="row" style="padding:5px;">
+                <b class="col-md-3">שם מתכון:</b>
+                <input class="col-md-9" type="text" />
+            </div>
+            <div class="row" style="padding:5px;">
+                <b class="col-md-3">זמן הכנה:</b>
+                <input class="col-md-9" type="text" />
+            </div>
+            <div class="row" style="padding:5px;">
+                <b class="col-md-3">רמה:</b>
+                <div class="col-md-1"><input name="level" type="radio" /> קל</div>
+                <div class="col-md-1"><input name="level" type="radio" /> בינוני</div>
+                <div class="col-md-1"><input name="level" type="radio" /> מתקדם</div>
+            </div>
+            <div style="margin:0px;">מצרכים : </div>
+            <hr />
+            <br />
+            <list-creator></list-creator>
+        </div>
+        <div class="col-md-4" style="height:auto;">
+            <div style="margin:0px;">שלבי הכנה : </div>
+            <hr />
+            <br />
+            <list-creator></list-creator>
+        </div>
+        <div class="col-md-4" style="height:auto;">
+            
+            <img src="../Images/addPicture.PNG" 
+                 style="width:15em; height:15em; 
+                        display: table;
+                        margin: 0 auto;"/>
+            <div style="display: table;
+                        margin: 0 auto;
+                        margin-top:10px;">
+                <button class="btn btn-success">הוספה</button>
+            </div>
+        </div>
+    </div>
 </div>
