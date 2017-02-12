@@ -54,6 +54,7 @@
     <Compile Include="Category.cs">
       <DependentUpon>myFood.tt</DependentUpon>
     </Compile>
+    <Compile Include="methods.cs" />
     <Compile Include="myFood.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
