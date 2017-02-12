@@ -4,6 +4,9 @@
 body {
     background: linear-gradient(to right,#303030,#21211f);
    font-family: 'Open Sans Hebrew', sans-serif;
+
+
+
 }
 
 a.button:visited
@@ -13,7 +16,7 @@ a.button:visited
 
 .linkMenu {
 
-color:white;
+color:black;
 text-decoration:none;
 font-weight:bold;
 font-size:medium;
@@ -25,9 +28,12 @@ margin:15px;
 font-weight:bold;
 font-size:small;
 color:black;
-
+margin:0px;
+margin-top:20px;
+/*
 padding:5px;
 padding-left:10px;
+    */
 }
 
 .clearMargin {
@@ -40,6 +46,19 @@ hr {
 
     margin:0px;
 
+}
+
+.picnic{
+
+
+background-size: 30px 30px;
+background-color: white;
+background-image: -webkit-linear-gradient(transparent 50%, rgba(200, 0, 0, .5) 50%, rgba(200, 0, 0, .5)),
+                  -webkit-linear-gradient(0deg, transparent 50%, rgba(200, 0, 0, .5) 50%, rgba(200, 0, 0, .5));
+background-image: -moz-linear-gradient(transparent 50%, rgba(200, 0, 0, .5) 50%, rgba(200, 0, 0, .5)),
+                  -moz-linear-gradient(0deg, transparent 50%, rgba(200, 0, 0, .5) 50%, rgba(200, 0, 0, .5));
+background-image: linear-gradient(transparent 50%, rgba(200, 0, 0, .5) 50%, rgba(200, 0, 0, .5)),
+                  linear-gradient(90deg, transparent 50%, rgba(200, 0, 0, .5) 50%, rgba(200, 0, 0, .5));
 }
 
 

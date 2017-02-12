@@ -110,14 +110,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Controllers\MainControllerjs.js" />
+    <Content Include="Default4.html" />
+    <Content Include="Default3.html" />
+    <Content Include="Default2.html" />
     <Content Include="Default.html" />
     <Content Include="Global.asax" />
     <Content Include="Images\logo.png" />
+    <Content Include="Images\logo1993.png" />
     <Content Include="Images\logo2.png" />
     <Content Include="Images\logo3.png" />
     <Content Include="Images\logo4.png" />
     <Content Include="Images\logo98.png" />
     <Content Include="Images\logo99.png" />
+    <Content Include="Images\mylogo.png" />
+    <Content Include="Images\mylogo26.png" />
     <Content Include="Images\reka.jpg" />
     <Content Include="Partials\AddView.html" />
     <Content Include="Partials\MainView.html" />
