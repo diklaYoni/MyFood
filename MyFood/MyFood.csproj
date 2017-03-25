@@ -109,15 +109,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Controllers\MainControllerjs.js" />
+    <Content Include="Client\Controllers\AddControllerjs.js" />
+    <Content Include="Client\Controllers\MainControllerjs.js" />
+    <Content Include="Default5.html" />
     <Content Include="Default4.html" />
     <Content Include="Default3.html" />
     <Content Include="Default2.html" />
     <Content Include="Default.html" />
-    <Content Include="Directives\list-creator\list-creator.html" />
-    <Content Include="Directives\list-creator\list-creator.js" />
-    <Content Include="Directives\recipe-list\recipe-list.html" />
-    <Content Include="Directives\recipe-list\recipe-list.js" />
+    <Content Include="Client\Directives\list-creator\list-creator.html" />
+    <Content Include="Client\Directives\list-creator\list-creator.js" />
+    <Content Include="Client\Directives\recipe-list\recipe-list.html" />
+    <Content Include="Client\Directives\recipe-list\recipe-list.js" />
     <Content Include="Global.asax" />
     <Content Include="Images\AddItem.jpg" />
     <Content Include="Images\addPicture.PNG" />
@@ -128,6 +130,7 @@
     <Content Include="Images\logo4.png" />
     <Content Include="Images\logo98.png" />
     <Content Include="Images\logo99.png" />
+    <Content Include="Images\mig.png" />
     <Content Include="Images\mylogo.png" />
     <Content Include="Images\mylogo26.png" />
     <Content Include="Images\reka.jpg" />
@@ -135,10 +138,10 @@
     <Content Include="Partials\AddView.html" />
     <Content Include="Partials\MainView.html" />
     <Content Include="Partials\RecipeView.html" />
-    <Content Include="Scripts\Angular\app.js" />
-    <Content Include="Scripts\Angular\filters.js" />
-    <Content Include="Scripts\Angular\Services\data-service.js" />
-    <Content Include="Scripts\Other\Rate.js" />
+    <Content Include="Client\app.js" />
+    <Content Include="Client\filters.js" />
+    <Content Include="Client\Services\data-service.js" />
+    <Content Include="Scripts\Rate.js" />
     <Content Include="Style\myFoodStyle.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -163,7 +166,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+    <Folder Include="Server\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
