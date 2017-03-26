@@ -24,27 +24,9 @@
     
 </head>
 <body>
-    <!-- facebook-->
-    <script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '612495535604468',
-      xfbml      : true,
-      version    : 'v2.8'
-    });
-    FB.AppEvents.logPageView();
-  };
+ 
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-    </script>
-
-    <div ng-app="myFoodApp"  class="container" style="width:80%;margin:auto;">
+    <div ng-app="myFoodApp"  class="container" style="width:70%;margin:auto;">
         <br />
 
         <br />
@@ -56,12 +38,14 @@
         <br />
         <div class="panel panel-default">
             <div class="panel-body text-center" style="padding:0px;">
-                <img src="Images/logo99.png" width="18%" style="margin:5px;" />
-                
+                <img src="Images/logogogo.png" width="17%" style="margin:0px;float:left;" />
+
+                <img src="Images/beck.png"  width="77%" style="margin:0px;float:left;"/>   
+                     <div class="clearfix"></div>
                 <div class="" >
 
                   
-                    <div class="text-right " style="background:#87ca60;margin:0px;padding:3px;color:white;margin-left:0px;">
+                    <div class="text-right " style="background:#87ca60;margin:0px;padding:2px;color:white;margin-left:0px;">
 
                         <div class="pull-right">
 
@@ -79,13 +63,7 @@
                         <button type="button" class="btn btn-default linkLogin" data-toggle="modal" data-target="#myLogin">  הרשמה | התחבר</button>
                      
                     </div>
-                        <div class="fb-like"
-                             data-share="true"
-                             data-width="450"
-                             data-show-faces="true">
-                        </div>
-                        <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
-
+         
                         
                             <div class="clearfix"></div>
                     </div>

@@ -2,11 +2,10 @@
 @import url(http://fonts.googleapis.com/earlyaccess/opensanshebrew.css);
 
 body {
-    background: linear-gradient(to right,#303030,#21211f);
-   font-family: 'Open Sans Hebrew', sans-serif;
-
-
-
+    /* background: linear-gradient(to right,#303030,#21211f);*/
+    background: url('../Images/0909.jpg');
+    background-size: cover;
+    font-family: 'Open Sans Hebrew', sans-serif;
 }
 
 a.button:visited
@@ -29,7 +28,7 @@ font-weight:bold;
 font-size:small;
 color:black;
 margin:0px;
-margin-top:20px;
+
 /*
 padding:5px;
 padding-left:10px;
