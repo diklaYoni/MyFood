@@ -1,7 +1,7 @@
 ﻿app.directive('listCreator', function () {
     return {
         restrict: 'E',
-        templateUrl: 'Directives/list-creator/list-creator.html',
+        templateUrl: 'Scripts/Directives/list-creator/list-creator.html',
         scope:{},
         link: function (scope) {
             scope.listItems = [];

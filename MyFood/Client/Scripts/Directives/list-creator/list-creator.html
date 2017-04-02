@@ -1,12 +1,12 @@
 ﻿<div class="list-creator">
     <div ng-repeat="item in listItems" ng-mouseenter="mouseEnterItem($index)" ng-mouseleave="mouseLeaveItem()">
         {{$index + 1}} )  {{item}}
-        <img src="../../Images/removeItem.jpg" 
+        <img src="Images/removeItem.jpg" 
              ng-show="HoveredItem == $index" 
              style="display:inline-block; width:20px; height:20px"
              ng-click="removeItem(item)"/>
     </div>
     <input type="text" style="display:inline-block; width:90%" ng-model="newItem" />
-    <img src="../../Images/AddItem.jpg" style="display:inline-block; width:20px; height:20px" ng-click="addItem()"/>
+    <img src="Images/AddItem.jpg" style="display:inline-block; width:20px; height:20px" ng-click="addItem()"/>
 </div>
 

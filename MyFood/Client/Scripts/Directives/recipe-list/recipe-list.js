@@ -1,7 +1,7 @@
 ﻿app.directive('recipeList', function () {
     return {
         restrict: 'E',
-        templateUrl: 'Directives/recipe-list/recipe-list.html',
+        templateUrl: 'Scripts/Directives/recipe-list/recipe-list.html',
         scope: {
             data: '='
         },

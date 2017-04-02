@@ -1,7 +1,6 @@
 ﻿
 app.factory('data-service', [function () {
     
-    Recipe r;
     var recepies = [
         {
             ID: 1,
