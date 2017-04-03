@@ -16,7 +16,7 @@ namespace MyFood.Server
         [ResponseType(typeof(Recipe))]
         [HttpGet]
         [Route("")]
-        public List<Recipe> getAllRecipes()
+        public IEnumerable<Recipe> getAllRecipes()
         {
             RecipeBL recipeBl = new RecipeBL();
             return recipeBl.getRecipes();

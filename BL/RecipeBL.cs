@@ -11,7 +11,7 @@ namespace BL
     public class RecipeBL
     {
 
-        public List<Recipe> getRecipes()
+        public IEnumerable<Recipe> getRecipes()
         {
             RecipeDAL recipeDal = new RecipeDAL();
             return recipeDal.GetAllRecipes();

@@ -1,13 +1,13 @@
 ﻿
-app.factory('data-service', [function () {
-    
+app.factory('data-service', ['$http', function ($http) {
+
     var recepies = [
         {
             ID: 1,
             Title: "קציצות תירס ותרד",
             Email: "aviranabuzadka@gmail.com",
             PrepTime: "15 דקות",
-            Ingridients:"תירס מתוק - קופסת שימורים (246 גרם), מסונן." +
+            Ingridients: "תירס מתוק - קופסת שימורים (246 גרם), מסונן." +
                         "תפוח אדמה - יחידה גדולה (323 גרם), מגורד." +
                         "תרד - 400 גרם, חלוט במים חמים 5 דקות וסחוט." +
                         "בצל - יחידה בינונית (125 גרם), קצוץ דק מאוד." +
@@ -18,7 +18,7 @@ app.factory('data-service', [function () {
                         "כמון טחון - 1/4 כפית שטוחה." +
                         "קמח לבן - 2 כפות שטוחות - סה\"כ (24 גרם)." +
                         "שמן קנולה - 1/2 כוס - סה\"כ (120 מ\"ל), לטיגון.",
-            Stages: 
+            Stages:
                 "1. לחלק את התירס לשני חלקים: חצי אחד להשאיר גרעיני תירס שלמים וחצי שני לרסק את גרעיני התירס ככל שאפשר." +
                 "2. להוסיף את שאר המצרכים ולערבב היטב." +
                 "3. להכין מהתערובת קציצות בגודל הרצוי." +
@@ -162,7 +162,7 @@ app.factory('data-service', [function () {
     ];
     return {
         getRecipes: function () {
-            return angular.copy(recepies);
+            return $http.get('../api/recipes');
         }
     };
 }]);

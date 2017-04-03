@@ -10,13 +10,19 @@ namespace DAL
 {
     public class RecipeDAL
     {
-        public List<Recipe> GetAllRecipes()
+        public IEnumerable<Recipe> GetAllRecipes()
         {
             using (MyFoodEntities mfeEntity = new MyFoodEntities())
             {
-                return mfeEntity.Recipe.ToList();
+                if (mfeEntity.Recipe.Count() > 0)
+                {
+                    return mfeEntity.Recipe.AsEnumerable<Recipe>();
+                }
+                else
+                {
+                    return new List<Recipe>().AsEnumerable <Recipe>();
+                }
             }
-
         }
 
 
